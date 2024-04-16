@@ -20,4 +20,16 @@ impl SubscriberRepository {
             .insert(subscriber.url.clone(), subscriber_value);
         subscriber
     }
+    pub fn list_all(product_type: &str) -> Vec<Subscriber> {
+        if SUBSCRIBERS.get(product_type).is_none() {
+            return vec![];
+        };
+
+        return SUBSCRIBERS
+            .get(product_type)
+            .unwrap()
+            .iter()
+            .map(|x| x.value().clone())
+            .collect();
+    }
 }
