@@ -79,3 +79,7 @@ This is the place for you to write reflections:
 1. Tergantung kompleksitas pada kasus yang dialami. Pada kasus semua subscriber dianggap hanya sebagai listener untuk perubahan, 1 buah struct cukup. Pada kasus dimana terdapat jenis yang berbeda, maka diperlukan trait yang berbeda untuk setiap jenis.
 2. Menggunakan Vec tidak cukup, karena tidak ada yang menjamin keunikan dari id dan url jika seperti itu sehingga DashMap diperlukan untuk kasus ini
 3. Kedua kasus bisa diterapkan. Singleton dapat dibuat secara thread-safe dengan menggunakan RWLock atau Mutex.
+#### Reflection 2
+1. Karena dengan memisahkan Service dan Repository, masing-masing class tersebut hanya memiliki 1 tanggung jawab. Service hanya mengurus business logic dan Repository mengurus pengambilan data dari database. Ketika dibutuhkan modifikasi maka akan mudah dilakukan karena coupling antara Service dan Repository tidak seerat itu.
+2. Jika menggunakan model, maka ketiga model akan memiliki coupling yang sangat erat sehingga menyulitkan modifikasi tanpa memengaruhi bagian lain.
+3. Postman membantu saya untuk menembak ke endpoint yang saya perlukan. Alat ini memudahkan saya untuk mengakses endpoint yang methodnya selain GET request.
